@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Home page</title>
+    <!-- <script src="./../../node_modules/jquery/dist/jquery.min.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>List product</h1>
+    <table>
+        <tr>
+            <td><b>Product id</b></td>
+            <td><b>Product name</b></td>
+            <td><b>Product type</b></td>
+        </tr>
+        <% products.forEach((entry) => { %>
+        <tr>
+            <td><%= entry.id %></td>
+            <td><%= entry.name %></td>
+            <td><%= entry.type %></td>
+            <td><input class="delete_btn" type="button" value="Delete" onclick="handleDeleteProduct('<%= entry.id %>')"></td>
+        </tr>
+        <% }) %>
+    </table>
+    <a href="/">Home page</a>
+    <script>
+        function handleDeleteProduct(value) {
+            $.ajax({
+                url: '/product/' + value,
+                type: 'DELETE',
+                success: function (result) {
+                    $(location).attr('href', '/product');
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

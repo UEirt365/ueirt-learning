@@ -9,6 +9,9 @@ var product = require('./routes/product');
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
 // Website routes
 app.use('/', routes);
 app.use('/product', product);
