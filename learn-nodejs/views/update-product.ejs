@@ -1,0 +1,26 @@
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+    <a href="/"><h3>Home page</h3></a>
+    <h2>UPDATE PRODUCT</h2>
+    <form action="/product/<%= product._id %>" method="POST">
+        <div class="form-group">
+            <label>Product ID</label>
+            <input class="form-control" type="text" name='productId' value="<%= product._id %>" disabled>
+        </div>
+        <div class="form-group">
+            <label>Product name</label>
+            <input class="form-control" type="text" name='productName' value="<%= product.name %>">
+        </div>
+        <div class="form-group">
+            <label>Product type</label>
+            <input class="form-control" type="text" name='productType' value="<%= product.type %>">
+        </div>
+        <input id="update-btn" class="btn btn-primary" type="submit" value="UPDATE PRODUCT">
+    </form>
+</div>
+</body>

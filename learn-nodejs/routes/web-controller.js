@@ -1,13 +1,23 @@
 var express = require('express');
 var router = express.Router();
-
-var configs = require('./../configurations/configs');
+var request = require('request');
 
 router.get('/', (req, res) => {
-    res.sendFile(configs.views_dir + '/index.ejs');
+    res.render('index');
 });
 router.get('/add-product', (req, res) => {
-    res.sendFile(configs.views_dir + '/add-product.ejs');
+    res.render('add-product');
+});
+router.get('/update-product/:id', (req, res) => {
+    var product = null;
+    request.get('http://localhost:8080/product/' + req.params.id, (err, resp, body) => {
+        if(err) {
+            console.log(err);
+            throw err
+        }
+        product = JSON.parse(body);
+        res.render('update-product', {product: product});
+    });
 });
 
 module.exports = router;

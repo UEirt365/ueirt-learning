@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-var configs = require('./../configurations/configs');
 var Product = require('./../db/models/product');
 
 router.get('/', (req, res) => {
@@ -11,7 +10,7 @@ router.get('/', (req, res) => {
         })
         .catch(err => {
             console.log('Error: ', err);
-            res.sendFile(configs.views_dir + '/error.ejs');
+            res.render('error');
         })
 });
 
@@ -23,11 +22,11 @@ router.post('/', (req, res) => {
 
     newProduct.save()
         .then(doc => {
-            res.send(doc)
+            res.redirect('/product')
         })
         .catch(err => {
             console.log('Error: ', err);
-            res.sendFile(configs.views_dir + '/error.ejs');
+            res.render('error');
         })
 });
 
@@ -38,5 +37,23 @@ router.delete('/:productId', (req, res) => {
         res.send(doc);
     })
 });
-
+router.get('/:productId', (req, res) => {
+    Product.findById(req.params.productId, (err, product) => {
+        if (err) {
+            console.log(err);
+            throw err
+        }
+        res.send(product)
+    })
+});
+router.post('/:productId', (req, res) => {
+    let productId = req.params.productId;
+    Product.findByIdAndUpdate(
+        {_id: productId},
+        {$set: {name: req.body.productName, type: req.body.productType}},
+        {useFindAndModify: false})
+        .then(doc => {
+            res.redirect('/product')
+        })
+});
 module.exports = router;

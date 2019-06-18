@@ -1,29 +1,22 @@
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div>ADD PRODUCT</div>
+<div class="container">
+    <a href="/"><h3>Home page</h3></a>
+    <h2>ADD PRODUCT</h2>
     <form action="/product" method="POST">
-        <table>
-            <tr>
-                <td>Product name</td>
-                <td>
-                    <input type="text" name='productName'>
-                </td>
-            </tr>
-            <tr>
-                <td>Product type</td>
-                <td>
-                    <input type="text" name='productType'>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Submit">
-                </td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label>Product name</label>
+            <input class="form-control" type="text" name='productName'>
+        </div>
+        <div class="form-group">
+            <label>Product type</label>
+            <input class="form-control" type="text" name='productType'>
+        </div>
+        <input id="add-btn" class="btn btn-primary" type="submit" value="ADD PRODUCT">
     </form>
+</div>
 </body>
