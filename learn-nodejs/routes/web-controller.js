@@ -10,7 +10,11 @@ router.get('/add-product', (req, res) => {
 });
 router.get('/update-product/:id', (req, res) => {
     var product = null;
-    request.get('http://localhost:8080/product/' + req.params.id, (err, resp, body) => {
+    var options = {
+        url: 'http://localhost:8080/product/' + req.params.id,
+        headers: req.headers
+    };
+    request.get(options, (err, resp, body) => {
         if(err) {
             console.log(err);
             throw err
