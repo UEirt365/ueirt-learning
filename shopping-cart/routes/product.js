@@ -6,7 +6,9 @@ var Product = require('./../db/schemas/product');
 router.get('/', (req, res) => {
     Product.find({})
         .then(products => {
-            res.send(products);
+            res.render('index', {
+                products: products
+            });
         })
         .catch(err => {
             console.log('Error: ', err);

@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.get('/', (req, res) => {
-    res.render('index')
+    res.redirect('/product');
 });
 app.use('/product', product);
 
