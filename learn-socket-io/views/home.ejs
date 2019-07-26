@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat</title>
+    <link rel="stylesheet" href="/stylesheet/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheet/app.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/jquery/jquery.js"></script>
+    <script src="/javascripts/app-jquery.js"></script>
+</head>
+<body>
+<div class="container-fluid h-100">
+    <div class="row justify-content-center h-100">
+        <div class="col-md-8 col-xl-6 chat">
+            <div class="card">
+                <div class="card-header msg_head">
+                    <div class="d-flex bd-highlight">
+                        <div class="img_cont">
+                            <img class="rounded-circle user_img me-img">
+                            <span class="online_icon"></span>
+                        </div>
+                        <div class="user_info">
+                            <span id="user_id">Anonymous_<%= Math.random().toString(36).substr(2, 9); %></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="content-container" class="card-body msg_card_body"></div>
+                <div class="card-footer">
+                    <form class="input-group" action="">
+                        <input type="text" id="m" name="sfd" class="form-control type_msg"
+                               placeholder="Type your message...">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

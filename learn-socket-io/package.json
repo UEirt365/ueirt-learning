@@ -1,0 +1,19 @@
+{
+  "name": "learn-socket-io",
+  "version": "1.0.0",
+  "description": "Learning NodeJS - SocketIO",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "UEirt",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "nodemon": "^1.19.1",
+    "passport": "^0.4.0",
+    "socket.io": "^2.2.0"
+  }
+}
