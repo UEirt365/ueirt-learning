@@ -1,0 +1,30 @@
+version: "3"
+
+#volumes:
+#  app-dir:
+#    driver_opts:
+#      device: /home/ueirt/Desktop/docker
+#      o: bind
+services:
+  my-mysql:
+    container_name: mysql-product
+    image: "mysql:latest"
+    hostname: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - /home/ueirt/Desktop/docker/db:/var/lib/mysql
+      - /home/ueirt/Desktop/docker/my.cnf:/etc/mysql/my.cnf
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=test_schema
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+  my-app:
+    container_name: my-app-container
+    image: "test_app:v1"
+    hostname: my-app-host
+    restart: always
+    ports:
+      - 8080:8080
