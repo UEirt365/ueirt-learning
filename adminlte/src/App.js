@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
+import MainContent from "./components/MainContent";
 import './App.css'
 
 function App() {
@@ -7,7 +9,8 @@ function App() {
         <div className={'main-body'}>
             <div className={'main-component'}>
                 <Header/>
-                <h1>Main component</h1>
+                <Sidebar/>
+                <MainContent/>
             </div>
         </div>
     );

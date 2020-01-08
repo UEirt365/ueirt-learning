@@ -1,0 +1,14 @@
+.content-wrapper {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+    transition: transform .3s ease-in-out, margin .3s ease-in-out;
+    margin-left: 230px;
+    background-color: #ecf0f5;
+    z-index: 800;
+    min-height: 970px;
+}
